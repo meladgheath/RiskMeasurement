@@ -11,6 +11,8 @@ public class PointHeadController extends PointHead {
     public PointHeadController() {
 
         save.setOnAction(event -> saveEvent());
+        t1_1.setOnKeyPressed(event -> textEvent());
+        t1_2.setOnKeyPressed(event -> textEvent());
     }
 
     public void saveEvent() {
@@ -24,6 +26,12 @@ public class PointHeadController extends PointHead {
       per = BigDecimal.valueOf(per).setScale(1, RoundingMode.CEILING.ordinal()).doubleValue() ;
 
       totalPerCent.setText(per+" % ");
+    }
+    public void textEvent () {
+        Long one = (t1_1.getText().equals("")) ? 0 : Long.parseLong(t1_1.getText()) ;
+        Long two = (t1_2.getText().equals("")) ? 0 : Long.parseLong(t1_2.getText()) ;
+
+        t1.setText((one+two)+"");
     }
 }
 

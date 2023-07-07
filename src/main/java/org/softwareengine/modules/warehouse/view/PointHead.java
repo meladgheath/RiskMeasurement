@@ -14,6 +14,8 @@ import org.softwareengine.utils.ui.FXSurface;
 public class PointHead {
 
     public TextField t1 ;
+    public TextField t1_1 ;
+    public TextField t1_2 ;
     public TextField t2 ;
     public TextField t3 ;
     public TextField t4 ;
@@ -28,6 +30,9 @@ public class PointHead {
         pointSurface.addTitle(LocaleService.getKey("point"));
 
          t1 = pointSurface.addRowWithTextField(LocaleService.getKey("t1")) ;
+         t1_1 = pointSurface.addRowWithTextField(LocaleService.getKey("t1_1")) ;
+         t1_2 = pointSurface.addRowWithTextField(LocaleService.getKey("t1_2")) ;
+         pointSurface.addSeparator();
          t2 = pointSurface.addRowWithTextField(LocaleService.getKey("t2"));
          t3 = pointSurface.addRowWithTextField(LocaleService.getKey("t3")) ;
          t4 = pointSurface.addRowWithTextField(LocaleService.getKey("t4")) ;
