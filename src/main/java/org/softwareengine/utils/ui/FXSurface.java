@@ -105,6 +105,7 @@ public class FXSurface extends VBox {
         HBox.setHgrow(region, Priority.ALWAYS);
 
         HBox hBox = new HBox(label0, region, textField);
+
         hBox.getStyleClass().add("surface-row");
 
         root.getChildren().add(hBox);
