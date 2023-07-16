@@ -25,6 +25,8 @@ public class HomeController extends HomeView {
     public static PointHeadController pointHeadController ;
     public static RafiaController rafiaController ;
     public static HeadRuleController headRuleController;
+    public static OmolatController omolatController ;
+    public static RiskMarketController riskMarketController ;
 
     public static CustomersController customersController ;
     public static TreasuryController treasuryController ;
@@ -36,14 +38,18 @@ public class HomeController extends HomeView {
     public HomeController(Stage stage) {
         super(stage);
 
-        pointHeadController = new PointHeadController();
-        rafiaController     = new RafiaController() ;
-        headRuleController  = new HeadRuleController();
+        pointHeadController  = new PointHeadController();
+        rafiaController      = new RafiaController() ;
+        headRuleController   = new HeadRuleController();
+        omolatController     = new OmolatController();
+        riskMarketController = new RiskMarketController();
 
+        PointHeadButton .setOnAction(event -> changeScene(Home.POINT_HEAD));
+        rafiaButton     .setOnAction(event -> changeScene(Home.RAFIA));
+        headRuleButton  .setOnAction(event -> changeScene(Home.HEAD_RULE));
+        OmolatButton    .setOnAction(event -> changeScene(Home.OMOLAT));
+        RiskMarketButton.setOnAction(event -> changeScene(Home.RISK_MARKET));
 
-        PointHeadButton.setOnAction(event -> changeScene(Home.POINT_HEAD));
-        rafiaButton    .setOnAction(event -> changeScene(Home.RAFIA));
-        headRuleButton .setOnAction(event -> changeScene(Home.HEAD_RULE));
 
 
 //        changeScene(Home.POINT_HEAD);
@@ -70,6 +76,19 @@ public class HomeController extends HomeView {
                 headRuleIcon.setContent(Constants.GENERAL_ICON.getValue());
                 root.setCenter(headRuleController.root);
             }
+            case OMOLAT -> {
+                resetSelection();
+                OmolatButton.getStyleClass().add("selected-navigation-button");
+                OmolatIcon  .setContent(Constants.GENERAL_ICON.getValue());
+                root.setCenter(omolatController.root);
+
+            }
+            case RISK_MARKET -> {
+                resetSelection();
+                RiskMarketButton.getStyleClass().add("selected-navigation-button");
+                RiskMarketIcon  .setContent(Constants.GENERAL_ICON.getValue());
+                root.setCenter(riskMarketController.root);
+            }
 
 
         }
@@ -85,5 +104,11 @@ public class HomeController extends HomeView {
 
         headRuleButton.getStyleClass().remove("selected-navigation-button");
         headRuleIcon.setContent(Constants.POINTHEAD_ICON.getValue());
+
+        OmolatButton.getStyleClass().remove("selected-navigation-button");
+        OmolatIcon.setContent(Constants.POINTHEAD_ICON.getValue());
+
+        RiskMarketButton.getStyleClass().remove("selected-navigation-button");
+        RiskMarketIcon.setContent(Constants.POINTHEAD_ICON.getValue());
     }
 }

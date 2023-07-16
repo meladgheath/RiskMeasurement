@@ -1,6 +1,10 @@
 package org.softwareengine.modules.warehouse.controller;
 
+import org.softwareengine.core.controller.HomeController;
 import org.softwareengine.modules.warehouse.view.HeadRuleView;
+
+import java.text.DecimalFormat;
+import java.text.Format;
 
 public class HeadRuleController extends HeadRuleView {
 
@@ -50,7 +54,13 @@ public class HeadRuleController extends HeadRuleView {
 
         Long result = one + two ;
 
-        headRuleTotal.setText(result+"");
+        DecimalFormat format = new DecimalFormat("#.##") ;
+        format.setGroupingUsed(true);
+        format.setGroupingSize(3);
+
+
+        headRuleTotal.setText(format.format(result));
+        HomeController.riskMarketController.totalHead.setText(format.format(result));
     }
 
 }

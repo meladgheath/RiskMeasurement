@@ -4,5 +4,7 @@ public enum Home {
 
     POINT_HEAD,
     RAFIA,
-    HEAD_RULE;
+    HEAD_RULE,
+    OMOLAT,
+    RISK_MARKET;
 }

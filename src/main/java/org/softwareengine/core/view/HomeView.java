@@ -19,6 +19,7 @@ import javafx.stage.StageStyle;
 import org.softwareengine.config.Constants;
 import org.softwareengine.config.Paths;
 import org.softwareengine.modules.warehouse.view.PointHead;
+import org.softwareengine.modules.warehouse.view.RiskMarketview;
 import org.softwareengine.utils.service.LocaleService;
 
 import java.util.Objects;
@@ -35,6 +36,12 @@ public abstract class HomeView {
 
     public final Button headRuleButton ;
     public final SVGPath headRuleIcon ;
+
+    public final  Button OmolatButton ;
+    public final SVGPath OmolatIcon   ;
+
+    public final Button RiskMarketButton ;
+    public final SVGPath RiskMarketIcon ;
 
     public HomeView(Stage stage) {
         Label salesLabel = new Label();
@@ -53,6 +60,14 @@ public abstract class HomeView {
         headRuleIcon   = new SVGPath();
         setupButton(headRuleButton,LocaleService.getKey("head-rule"),headRuleIcon,Constants.POINTHEAD_ICON);
 
+        OmolatButton = new Button ();
+        OmolatIcon   = new SVGPath();
+        setupButton(OmolatButton,LocaleService.getKey("Omolat"),OmolatIcon,Constants.POINTHEAD_ICON);
+
+        RiskMarketButton = new Button();
+        RiskMarketIcon   = new SVGPath();
+        setupButton(RiskMarketButton,LocaleService.getKey("riskMarket"), RiskMarketIcon,Constants.POINTHEAD_ICON);
+
         VBox vBox = new VBox();
         vBox.getStyleClass().add("home-left");
 
@@ -61,6 +76,8 @@ public abstract class HomeView {
         vBox.getChildren().add(PointHeadButton);
         vBox.getChildren().add(rafiaButton);
         vBox.getChildren().add(headRuleButton);
+        vBox.getChildren().add(OmolatButton);
+        vBox.getChildren().add(RiskMarketButton);
 
 
         root = new BorderPane();
